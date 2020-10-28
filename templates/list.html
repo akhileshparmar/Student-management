@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>List</title>
+</head>
+
+<body >
+    {% if user.is_authenticated %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Welcome {{user.first_name}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <form class="form-inline mr-2 my-lg-0" method="GET" action="/search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search by Name" aria-label="Search" name="search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+              
+           <p class="form-inline my-2 my-lg-0">
+                <a href="/logout" class="btn btn-outline-dark my-2 my-sm-0" style="margin-right:10px">Logout</a>
+            </p>
+
+          </ul>
+        </div>
+        
+      </nav>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{list.Class}} Students</li>
+        </ol>
+    </nav>
+
+    <div class="list-group" style="text-align: center;">
+
+        {% if list %}
+        <a href="" class="list-group-item list-group-item-action active" style="border-radius: 0em;">
+           <b>Students</b>
+        </a>
+
+        {% else %}
+
+        <div class=" alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Not Available !</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
+
+      {% endif %}
+ 
+
+        {% for list in list %}
+        <a href="/profile/{{list.Scholar_no}}" class="list-group-item list-group-item-action" style="color: black; background-color: white; border-width:0.10em; border-color:#00c6ff; border-radius: 0em;">{{list.Name}}</a>
+    
+        {% endfor %}
+    </div>
+
+    {% endif %}
+</body>
+
+</html>

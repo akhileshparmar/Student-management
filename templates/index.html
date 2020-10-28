@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <title>HOME</title>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/home">Welcome {{user.first_name}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <form class="form-inline mr-2 my-lg-0" method="GET" action="/search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search by Name" aria-label="Search" name="search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+              
+           <p class="form-inline my-2 my-lg-0">
+                <a href="/logout" class="btn btn-outline-dark my-2 my-sm-0" style="margin-right:10px">Logout</a>
+            </p>
+
+          </ul>
+        </div>
+        
+      </nav>
+
+      
+
+    <div class="container-sm">
+        <!-- Content here -->
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Information Technology</h5>
+                <p class="card-text">View IT students Information</p>
+                <a href="lists/IT" class="btn btn-primary">IT</a>
+            </div>
+        </div>
+
+
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Computer Science</h5>
+                <p class="card-text">View CS students Information</p>
+                <a href="lists/CS" class="btn btn-primary">CS</a>
+            </div>
+        </div>
+
+
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mechanical</h5>
+                <p class="card-text">View ME students Information</p>
+                <a href="lists/ME" class="btn btn-primary">ME</a>
+            </div>
+        </div>
+
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Electronics & communication</h5>
+                <p class="card-text">View EC students Information</p>
+                <a href="lists/EC" class="btn btn-primary">EC</a>
+            </div>
+        </div>
+
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Civil</h5>
+                <p class="card-text">View CE students Information</p>
+                <a href="lists/CE" class="btn btn-primary">CE</a>
+            </div>
+        </div>
+
+
+    </div>
+    {% endif %}
+</body>
+
+<style>
+    h5 {
+        font-family: Comic Sans MS;
+    }
+</style>
+
+</html>

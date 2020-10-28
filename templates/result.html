@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0; background-color: black;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
+</style>
+<title>Result</title>
+</head>
+
+
+<body>
+  {% if user.is_authenticated %}
+
+
+<div class="slideshow-container">
+
+{% for row in rows %}
+     
+
+    <font style="color: white;"><h2>SEM 1</h2></font>
+    <img src="{{row.Sem1}}" alt="Not found" style="width:100%"><br>
+
+
+    <font style="color: white;"><h2>SEM 2</h2></font>
+    <img src="{{row.Sem2}}" alt="Not found" style="width:100%"><br>
+    
+
+
+{% endfor %}
+
+{% endif %}
+</body>
+</html> 
